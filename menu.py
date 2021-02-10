@@ -1,6 +1,11 @@
+from os import listdir
+from string import ascii_lowercase
+from random import choice
 from typing import ClassVar
+
 from ask_user import UserIpnut
 from cords import Cords
+from errors import *
 
 
 class Menu:
@@ -63,10 +68,46 @@ class Menu:
 
         self.cords.move(move_x, move_y)
 
+    def __verify_filename(self, fname: str, extname: str) -> str: 
+        files_in_pwd = list(filter(lambda f: f == fname, listdir('.')))
+        print(files_in_pwd)
+        try:
+            if fname in files_in_pwd:
+                raise FileAlreadyExistsError('File already exists')
+            return fname
+        except FileAlreadyExistsError:
+            randname = ''.join(choice(ascii_lowercase) for i in range(10)) 
+            print(f'Random name of {randname} is assigned')
+            return f'{randname}.{extname}'
+
+    def ask_filename(self) -> str:
+        fname: str = self.input.ask_smth('Enter a filename')
+        if len(fname.strip()) == 0:
+            fname = 'result'
+
+        return fname
+
+    def ask_for_extension(self) -> str:
+        possible_extensions = {'jpg', 'jpeg', 'png', 'gif'}
+        try:
+            extname: str = self.input.ask_smth('Enter extension name of the image')
+            extname = extname.strip().lower()
+            if len(extname) == 0 or not extname in possible_extensions:
+                raise WrongExtensionError('Wrong extension')
+            return extname
+        except WrongExtensionError:
+            print('Wrong extension')
+            return self.ask_for_extension()
+
+    def get_full_filename(self) -> str:
+        extname = self.ask_for_extension()
+        full_filename = f'{self.ask_filename()}.{extname}'
+        return self.__verify_filename(full_filename, extname)
+
     def execute(self) -> None:
         self.fill_cords()
         self.ask_rotate_angle()
         self.ask_scale()
         self.ask_move()
         
-        self.cords.to_plot(self.input.ask_smth('Enter filename and extension of image'))
+        self.cords.to_plot(self.get_full_filename())

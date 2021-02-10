@@ -10,3 +10,6 @@ matplotlib = "*"
 
 [requires]
 python_version = "3.9"
+
+[scripts]
+draw = "python main.py"
