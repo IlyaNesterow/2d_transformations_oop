@@ -68,9 +68,9 @@ class Menu:
 
         self.cords.move(move_x, move_y)
 
-    def __verify_filename(self, fname: str, extname: str) -> str: 
+    def __verify_filename(self, fname: str) -> str: 
         files_in_pwd = list(filter(lambda f: f == fname, listdir('.')))
-        print(files_in_pwd)
+        extname = fname.split('.')[len(fname.split('.')) - 1]
         try:
             if fname in files_in_pwd:
                 raise FileAlreadyExistsError('File already exists')
@@ -102,7 +102,7 @@ class Menu:
     def get_full_filename(self) -> str:
         extname = self.ask_for_extension()
         full_filename = f'{self.ask_filename()}.{extname}'
-        return self.__verify_filename(full_filename, extname)
+        return self.__verify_filename(full_filename)
 
     def execute(self) -> None:
         self.fill_cords()
