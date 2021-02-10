@@ -4,7 +4,7 @@ Does the same thing as https://transformer-2d.herokuapp.com/, but via CLI⌨️�
 To execute: 
 - You need to have pipenv installed
 - Run pipenv install or pip install -r requirements.txt
-- Run pipenv run start and you are good to go✨
+- Run pipenv run draw and you are good to go✨
 
 When excuted:
 - Enter amount of points, 3 points are minimum
