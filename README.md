@@ -2,6 +2,8 @@
 Does the same thing as https://transformer-2d.herokuapp.com/, but via CLI⌨️📈📏
 
 To execute: 
+- git clone https://github.com/URL-TO-REPO-HERE
+- cd <cloned repo>
 - You need to have pipenv installed
 - Run pipenv install or pip install -r requirements.txt
 - Run pipenv run draw and you are good to go✨
@@ -16,7 +18,10 @@ When excuted:
   - Scaled on y axis by certain quotient
   - Moved by certain amount of pixels horizontally
   - Moved by certain amount of pixels vertically
-- You will be asked to enter the filename and extension name of picture that will be created
+- You will be asked to enter:
+  - The extension name of picture 
+  - The filename of picture
 
 Once you have completed all the steps above:
 - You will find an newly generated image in your current working directory
+
