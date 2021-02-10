@@ -2,8 +2,8 @@
 Does the same thing as https://transformer-2d.herokuapp.com/, but via CLI⌨️📈📏
 
 To execute: 
-- git clone https://github.com/IlyaNesterow/2d_transformations_oop.git
-- cd (cloned repo folder name)
+- Run git clone https://github.com/IlyaNesterow/2d_transformations_oop.git
+- Run cd (cloned repo folder name)
 - You need to have pipenv installed
 - Run pipenv install or pip install -r requirements.txt
 - Run pipenv run draw and you are good to go✨
