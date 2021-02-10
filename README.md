@@ -2,7 +2,7 @@
 Does the same thing as https://transformer-2d.herokuapp.com/, but via CLI⌨️📈📏
 
 To execute: 
-- git clone https://github.com/URL-TO-REPO-HERE
+- git clone https://github.com/IlyaNesterow/2d_transformations_oop.git
 - cd <cloned repo>
 - You need to have pipenv installed
 - Run pipenv install or pip install -r requirements.txt
